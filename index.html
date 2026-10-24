@@ -3,24 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV | Nguyễn Văn A</title>
-    <meta name="description" content="CV cá nhân" />
+    <title>Nguyễn Văn A | CV</title>
+    <meta
+      name="description"
+      content="CV chuyên nghiệp cho Frontend Developer / UI Designer / Developer"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --bg: #0b1020;
-        --bg-2: #111827;
-        --panel: rgba(17, 24, 39, 0.8);
-        --card: rgba(15, 23, 42, 0.8);
+        --bg-alt: #111827;
+        --panel: rgba(17, 24, 39, 0.78);
+        --panel-strong: rgba(15, 23, 42, 0.96);
+        --card: rgba(15, 23, 42, 0.88);
         --text: #e5eefb;
-        --muted: #a3b1c7;
-        --primary: #7c3aed;
+        --muted: #9aa8bf;
+        --soft: #cbd5e1;
+        --line: rgba(148, 163, 184, 0.18);
+        --primary: #8b5cf6;
+        --primary-2: #7c3aed;
         --secondary: #22d3ee;
         --accent: #f59e0b;
-        --line: rgba(148, 163, 184, 0.25);
         --success: #34d399;
+        --shadow: 0 30px 70px rgba(15, 23, 42, 0.5);
       }
 
       * {
@@ -33,14 +43,14 @@
 
       body {
         margin: 0;
-        font-family: "Inter", sans-serif;
-        color: var(--text);
-        background:
-          radial-gradient(circle at top left, rgba(124, 58, 237, 0.35), transparent 28%),
-          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.15), transparent 25%),
-          linear-gradient(135deg, var(--bg), var(--bg-2));
         min-height: 100vh;
-        overflow-x: hidden;
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(124, 58, 237, 0.22), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.12), transparent 26%),
+          linear-gradient(135deg, #07101f 0%, #0c1324 42%, #0d1729 100%);
+        color: var(--text);
+        line-height: 1.7;
       }
 
       body::before {
@@ -48,15 +58,25 @@
         position: fixed;
         inset: 0;
         background-image:
-          linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-        background-size: 30px 30px;
-        mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at center, #000 50%, transparent 100%);
         pointer-events: none;
       }
 
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
       .container {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1160px, calc(100% - 32px));
         margin: 0 auto;
       }
 
@@ -64,23 +84,36 @@
         position: sticky;
         top: 0;
         z-index: 50;
-        backdrop-filter: blur(14px);
-        background: rgba(11, 16, 32, 0.45);
         border-bottom: 1px solid var(--line);
+        background: rgba(11, 16, 32, 0.55);
+        backdrop-filter: blur(18px);
       }
 
       .nav {
+        min-height: 76px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 72px;
       }
 
       .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: white;
+      }
+
+      .brand-mark {
+        display: inline-grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        box-shadow: 0 12px 24px rgba(34, 211, 238, 0.35);
+        font-size: 0.8rem;
       }
 
       .brand span {
@@ -89,31 +122,30 @@
 
       .menu {
         display: flex;
-        align-items: center;
-        gap: 20px;
         flex-wrap: wrap;
+        align-items: center;
+        gap: 22px;
       }
 
       .menu a {
         color: var(--muted);
-        text-decoration: none;
-        font-size: 0.93rem;
+        font-size: 0.9rem;
         transition: color 0.2s ease;
       }
 
       .menu a:hover {
-        color: white;
+        color: var(--text);
       }
 
       .hero {
-        padding: 86px 0 64px;
+        padding: 80px 0 40px;
       }
 
-      .hero-wrap {
+      .hero-grid {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 36px;
         align-items: center;
-        gap: 40px;
       }
 
       .eyebrow {
@@ -121,12 +153,12 @@
         align-items: center;
         gap: 10px;
         padding: 8px 14px;
-        border: 1px solid rgba(124, 58, 237, 0.5);
+        border: 1px solid rgba(124, 58, 237, 0.3);
         border-radius: 999px;
         background: rgba(124, 58, 237, 0.12);
-        color: #d7c5ff;
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
+        color: #ddd6fe;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
@@ -136,36 +168,35 @@
         height: 8px;
         border-radius: 50%;
         background: var(--secondary);
-        box-shadow: 0 0 12px var(--secondary);
+        box-shadow: 0 0 14px rgba(34, 211, 238, 0.9);
       }
 
       h1 {
-        font-size: clamp(2.8rem, 6vw, 5rem);
-        line-height: 1.04;
-        margin: 18px 0 18px;
-        letter-spacing: -0.06em;
+        margin: 22px 0 18px;
+        font-size: clamp(2.7rem, 5vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.07em;
       }
 
-      h1 .gradient {
-        background: linear-gradient(135deg, var(--secondary), var(--primary), #f472b6);
+      .gradient-text {
+        background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 45%, #f472b6 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
 
-      .subtitle {
-        font-size: 1.08rem;
-        line-height: 1.7;
+      .lead {
         color: var(--muted);
-        max-width: 680px;
-        margin-bottom: 26px;
+        font-size: 1.08rem;
+        max-width: 620px;
+        margin: 0 0 26px;
       }
 
       .actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
-        margin: 18px 0 26px;
+        gap: 14px;
+        margin-bottom: 26px;
       }
 
       .button {
@@ -175,9 +206,8 @@
         min-height: 48px;
         padding: 0 22px;
         border-radius: 12px;
-        text-decoration: none;
         font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
       }
 
       .button:hover {
@@ -185,133 +215,134 @@
       }
 
       .button.primary {
-        background: linear-gradient(135deg, var(--primary), #8b5cf6);
         color: white;
-        box-shadow: 0 14px 35px rgba(124, 58, 237, 0.4);
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        box-shadow: 0 18px 34px rgba(124, 58, 237, 0.35);
       }
 
       .button.secondary {
-        color: var(--text);
         border: 1px solid var(--line);
-        background: rgba(255,255,255,0.02);
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--text);
       }
 
-      .meta {
+      .mini-meta {
         display: flex;
         flex-wrap: wrap;
-        gap: 18px;
+        gap: 20px;
         color: var(--muted);
-        font-size: 0.92rem;
+        font-size: 0.9rem;
       }
 
-      .meta div {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .meta div::before {
-        content: "";
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: var(--success);
-        box-shadow: 0 0 10px rgba(52, 211, 153, 0.85);
-      }
-
-      .profile-card {
-        position: relative;
-        padding: 20px;
-        border-radius: 28px;
-        background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
-        border: 1px solid var(--line);
-        box-shadow: 0 30px 80px rgba(2, 6, 23, 0.5);
-      }
-
-      .avatar {
-        position: relative;
-        height: 420px;
-        border-radius: 24px;
-        background:
-          linear-gradient(135deg, rgba(34, 211, 238, 0.25), rgba(124, 58, 237, 0.15)),
-          url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
-        overflow: hidden;
-      }
-
-      .avatar::before {
-        content: "";
-        position: absolute;
-        inset: 12px;
-        border: 1px solid rgba(255,255,255,0.18);
-        border-radius: 20px;
-      }
-
-      .badge {
-        position: absolute;
-        bottom: 22px;
-        left: 22px;
-        right: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 14px 16px;
-        border-radius: 16px;
-        background: rgba(15, 23, 42, 0.8);
-        border: 1px solid rgba(255,255,255,0.08);
-        backdrop-filter: blur(12px);
-      }
-
-      .badge strong {
-        display: block;
-        font-size: 1.1rem;
-      }
-
-      .badge span {
-        display: block;
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-
-      .status {
+      .mini-meta div {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: var(--success);
-        font-size: 0.82rem;
-        font-weight: 600;
       }
 
-      .status::before {
+      .mini-meta div::before {
         content: "";
         width: 8px;
         height: 8px;
         background: var(--success);
         border-radius: 50%;
-        box-shadow: 0 0 12px var(--success);
+        box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);
+      }
+
+      .portrait-wrap {
+        position: relative;
+        padding: 18px;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(10, 16, 26, 0.82));
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .portrait {
+        position: relative;
+        height: 420px;
+        border-radius: 24px;
+        overflow: hidden;
+        background:
+          linear-gradient(135deg, rgba(34, 211, 238, 0.18), rgba(124, 58, 237, 0.12)),
+          url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
+      }
+
+      .portrait::before {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 20px;
+      }
+
+      .floating-badge {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: rgba(10, 16, 26, 0.76);
+        border: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .floating-badge strong {
+        display: block;
+        font-size: 1.02rem;
+      }
+
+      .floating-badge span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .status-dot {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--success);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .status-dot::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 12px rgba(52,211,153,0.9);
       }
 
       section {
-        padding: 26px 0 18px;
+        padding: 30px 0 12px;
       }
 
       .section-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 14px;
-        margin-bottom: 18px;
+        gap: 16px;
+        margin-bottom: 20px;
       }
 
       .section-head h2 {
-        font-size: clamp(1.4rem, 2vw, 2rem);
         margin: 0;
+        font-size: clamp(1.5rem, 2vw, 2.2rem);
+        letter-spacing: -0.04em;
       }
 
       .section-head span {
         color: var(--muted);
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
+        font-size: 0.75rem;
         text-transform: uppercase;
       }
 
@@ -325,25 +356,26 @@
         background: var(--card);
         border: 1px solid var(--line);
         border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-        padding: 22px;
+        box-shadow: 0 18px 38px rgba(2, 6, 23, 0.24);
       }
 
-      .about {
+      .about-block {
         grid-column: span 7;
+        padding: 24px 22px;
       }
 
-      .info-box {
-        grid-column: span 5;
-      }
-
-      .about p {
+      .about-block p {
         margin: 0;
         color: var(--muted);
         line-height: 1.9;
       }
 
-      .contact-list {
+      .contact-card {
+        grid-column: span 5;
+        padding: 22px;
+      }
+
+      .info-list {
         list-style: none;
         padding: 0;
         margin: 0;
@@ -351,41 +383,51 @@
         gap: 14px;
       }
 
-      .contact-list li {
+      .info-list li {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
+        gap: 14px;
         padding-bottom: 10px;
         border-bottom: 1px solid var(--line);
         color: var(--muted);
       }
 
-      .contact-list li strong {
+      .info-list li strong {
         color: var(--text);
         font-weight: 600;
       }
 
-      .skills {
+      .skills-block {
         grid-column: span 12;
+        padding: 22px;
       }
 
-      .skill-list {
+      .skill-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 16px;
+        gap: 18px;
       }
 
-      .skill-item {
-        background: rgba(255,255,255,0.02);
+      .skill-card {
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.02);
         border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 16px;
+        transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
       }
 
-      .skill-item h3 {
+      .skill-card:hover,
+      .project-card:hover,
+      .timeline-item:hover {
+        transform: translateY(-4px);
+        border-color: rgba(34, 211, 238, 0.3);
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+      }
+
+      .skill-card h3 {
         margin: 0 0 12px;
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
 
       .tags {
@@ -400,13 +442,14 @@
         padding: 7px 10px;
         border-radius: 999px;
         background: rgba(124, 58, 237, 0.12);
-        border: 1px solid rgba(124, 58, 237, 0.2);
+        border: 1px solid rgba(124, 58, 237, 0.18);
         color: #e9d5ff;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
       }
 
-      .experience {
+      .experience-block {
         grid-column: span 12;
+        padding: 22px;
       }
 
       .timeline {
@@ -418,36 +461,37 @@
       .timeline::before {
         content: "";
         position: absolute;
-        left: 18px;
+        left: 20px;
         top: 0;
         bottom: 0;
         width: 2px;
-        background: linear-gradient(180deg, var(--secondary), var(--primary), rgba(255,255,255,0));
+        background: linear-gradient(180deg, rgba(34,211,238,0), rgba(34,211,238,1), rgba(124,58,237,1), rgba(124,58,237,0));
       }
 
       .timeline-item {
         position: relative;
-        margin-left: 40px;
-        padding: 18px 20px;
+        margin-left: 46px;
+        padding: 18px 18px 16px;
+        border-radius: 18px;
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
-        border-radius: 16px;
+        transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
       }
 
       .timeline-item::before {
         content: "";
         position: absolute;
-        left: -29px;
-        top: 23px;
-        width: 16px;
-        height: 16px;
+        left: -31px;
+        top: 22px;
+        width: 18px;
+        height: 18px;
         border-radius: 50%;
         background: linear-gradient(135deg, var(--secondary), var(--primary));
-        border: 3px solid rgba(11, 16, 32, 1);
-        box-shadow: 0 0 18px rgba(34, 211, 238, 0.8);
+        border: 3px solid rgba(11,16,32,1);
+        box-shadow: 0 0 18px rgba(34,211,238,0.9);
       }
 
-      .timeline-top {
+      .row-top {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -455,16 +499,16 @@
         margin-bottom: 8px;
       }
 
-      .timeline-top h3 {
+      .row-top h3 {
         margin: 0;
         font-size: 1.08rem;
       }
 
-      .time {
-        white-space: nowrap;
+      .time-tag {
         color: var(--muted);
-        font-size: 0.82rem;
-        letter-spacing: 0.04em;
+        font-size: 0.76rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .timeline-item p {
@@ -473,40 +517,49 @@
         line-height: 1.8;
       }
 
-      .portfolio {
+      .projects-block {
         grid-column: span 12;
+        padding: 22px;
       }
 
-      .projects {
+      .project-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
+        gap: 20px;
       }
 
-      .project {
-        position: relative;
+      .project-card {
         overflow: hidden;
         border-radius: 18px;
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
+        transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
       }
 
-      .project-cover {
-        height: 180px;
-        background-size: cover;
+      .project-visual {
+        height: 190px;
         background-position: center;
+        background-size: cover;
+        position: relative;
       }
 
-      .project:nth-child(1) .project-cover {
-        background-image: linear-gradient(135deg, rgba(34,211,238,.28), rgba(124,58,237,.2)), url("https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80");
+      .project-visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent, rgba(9, 13, 22, 0.6));
       }
 
-      .project:nth-child(2) .project-cover {
-        background-image: linear-gradient(135deg, rgba(245,158,11,.25), rgba(124,58,237,.2)), url("https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80");
+      .project-card:nth-child(1) .project-visual {
+        background-image: linear-gradient(135deg, rgba(34, 211, 238, 0.26), rgba(124, 58, 237, 0.2)), url("https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80");
       }
 
-      .project:nth-child(3) .project-cover {
-        background-image: linear-gradient(135deg, rgba(34,197,94,.22), rgba(34,211,238,.2)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
+      .project-card:nth-child(2) .project-visual {
+        background-image: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(124, 58, 237, 0.2)), url("https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80");
+      }
+
+      .project-card:nth-child(3) .project-visual {
+        background-image: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(34, 211, 238, 0.2)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
       }
 
       .project-body {
@@ -521,27 +574,45 @@
       .project-body p {
         margin: 0;
         color: var(--muted);
-        line-height: 1.7;
+        line-height: 1.8;
       }
 
       .footer {
-        padding: 26px 0 60px;
+        padding: 36px 0 60px;
         text-align: center;
         color: var(--muted);
       }
 
-      @media (max-width: 920px) {
-        .hero-wrap {
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 960px) {
+        .hero-grid {
           grid-template-columns: 1fr;
         }
 
-        .about, .info-box, .skills, .experience, .portfolio {
+        .about-block,
+        .contact-card,
+        .skills-block,
+        .experience-block,
+        .projects-block {
           grid-column: span 12;
         }
 
-        .skill-list,
-        .projects {
+        .skill-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr 1fr;
         }
       }
 
@@ -551,15 +622,15 @@
         }
 
         .hero {
-          padding-top: 64px;
+          padding-top: 60px;
         }
 
-        .skill-list,
-        .projects {
+        .skill-grid,
+        .project-grid {
           grid-template-columns: 1fr;
         }
 
-        .timeline-top {
+        .row-top {
           flex-direction: column;
           align-items: flex-start;
         }
@@ -569,92 +640,95 @@
   <body>
     <header class="topbar">
       <div class="container nav">
-        <div class="brand">Nguyễn <span>Văn A</span></div>
+        <div class="brand">
+          <span class="brand-mark">A</span>
+          Nguyễn <span>Văn A</span>
+        </div>
         <nav class="menu" aria-label="Main navigation">
-          <a href="#gioi-thieu">Giới thiệu</a>
-          <a href="#ky-nang">Kỹ năng</a>
-          <a href="#kinh-nghiem">Kinh nghiệm</a>
-          <a href="#du-an">Dự án</a>
-          <a href="#lien-he">Liên hệ</a>
+          <a href="#about">Giới thiệu</a>
+          <a href="#skills">Kỹ năng</a>
+          <a href="#experience">Kinh nghiệm</a>
+          <a href="#projects">Dự án</a>
+          <a href="#contact">Liên hệ</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
-      <section class="hero" id="gioi-thieu">
-        <div class="hero-wrap">
+      <section class="hero reveal">
+        <div class="hero-grid">
           <div>
             <div class="eyebrow">Frontend Developer</div>
             <h1>
-              Tạo <span class="gradient">trải nghiệm</span><br />
-              đẹp và hiệu quả
+              Thiết kế <span class="gradient-text">trải nghiệm</span><br />
+              sáng tạo & hiệu quả
             </h1>
-            <p class="subtitle">
-              Tôi là <strong>Nguyễn Văn A</strong>, một Frontend Developer với 3+ năm kinh nghiệm thiết kế và phát triển giao diện web hiện đại,
-              tối ưu trải nghiệm người dùng, đảm bảo hiệu suất và tính thẩm mỹ cao.
+            <p class="lead">
+              Tôi là <strong>Nguyễn Văn A</strong>, Frontend Developer và UI Designer với 3+ năm kinh nghiệm xây dựng sản phẩm web hiện đại,
+              tối ưu trải nghiệm người dùng, giao diện đẹp, hiệu năng cao và dễ mở rộng.
             </p>
 
             <div class="actions">
-              <a class="button primary" href="#du-an">Xem dự án</a>
-              <a class="button secondary" href="#lien-he">Liên hệ</a>
+              <a href="#projects" class="button primary">Xem dự án</a>
+              <a href="#contact" class="button secondary">Liên hệ</a>
             </div>
 
-            <div class="meta">
+            <div class="mini-meta">
               <div>Hiện đang làm việc tại FPT Software</div>
               <div>Available for freelance</div>
             </div>
           </div>
 
-          <div class="profile-card">
-            <div class="avatar">
-              <div class="badge">
+          <div class="portrait-wrap">
+            <div class="portrait" aria-label="Profile image">
+              <div class="floating-badge">
                 <div>
                   <strong>Nguyễn Văn A</strong>
-                  <span>Frontend Developer</span>
+                  <span>Product Designer / Developer</span>
                 </div>
-                <div class="status">Available</div>
+                <div class="status-dot">Available</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section id="about" class="reveal">
         <div class="section-head">
-          <h2>Thông tin cá nhân</h2>
+          <h2>Giới thiệu</h2>
           <span>Profile</span>
         </div>
 
         <div class="grid">
-          <div class="card about">
+          <div class="card about-block">
             <p>
-              Tôi tập trung vào việc xây dựng giao diện người dùng thân thiện, tối ưu, responsive và dễ mở rộng.
-              Mỗi dự án tôi đều đánh giá từ góc độ trải nghiệm người dùng, hiệu năng và khả năng duy trì lâu dài.
-              Tôi luôn muốn tạo ra sản phẩm không chỉ đẹp về mặt hình ảnh mà còn mang lại giá trị thực tế cho người dùng.
+              Tôi tập trung vào việc xây dựng giao diện người dùng hiện đại, tối ưu trải nghiệm và dễ tiếp cận trên mọi thiết bị.
+              Với phương châm “thiết kế không chỉ đẹp mà còn hiệu quả”, tôi kết hợp giữa yếu tố thẩm mỹ, logic UX, và kỹ thuật front-end để tạo ra sản phẩm đáng tin cậy và dễ mở rộng.
+              Tôi có kinh nghiệm làm việc với React, Next.js, Tailwind, HTML/CSS/JS, và quy trình thiết kế từ ideation đến prototype, implementation và testing.
             </p>
           </div>
 
-          <div class="card info-box" id="lien-he">
-            <ul class="contact-list">
+          <div class="card contact-card" id="contact">
+            <ul class="info-list">
               <li><span>Email</span><strong>nguyenvana@email.com</strong></li>
-              <li><span>Điện thoại</span><strong>+84 912 345 678</strong></li>
-              <li><span>Địa chỉ</span><strong>Hà Nội, Việt Nam</strong></li>
+              <li><span>Phone</span><strong>+84 912 345 678</strong></li>
+              <li><span>Location</span><strong>Hà Nội, Việt Nam</strong></li>
               <li><span>Website</span><strong>portfolio.example.com</strong></li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section id="ky-nang">
+      <section id="skills" class="reveal">
         <div class="section-head">
           <h2>Kỹ năng</h2>
           <span>Skills</span>
         </div>
 
         <div class="grid">
-          <div class="card skills">
-            <div class="skill-list">
-              <div class="skill-item">
+          <div class="card skills-block">
+            <div class="skill-grid">
+              <div class="skill-card">
                 <h3>Frontend</h3>
                 <div class="tags">
                   <span>HTML5</span>
@@ -664,7 +738,7 @@
                 </div>
               </div>
 
-              <div class="skill-item">
+              <div class="skill-card">
                 <h3>UI/UX</h3>
                 <div class="tags">
                   <span>Figma</span>
@@ -674,7 +748,7 @@
                 </div>
               </div>
 
-              <div class="skill-item">
+              <div class="skill-card">
                 <h3>Framework</h3>
                 <div class="tags">
                   <span>Next.js</span>
@@ -684,13 +758,13 @@
                 </div>
               </div>
 
-              <div class="skill-item">
+              <div class="skill-card">
                 <h3>Tools</h3>
                 <div class="tags">
                   <span>Git</span>
                   <span>GitHub</span>
-                  <span>Webpack</span>
                   <span>Jira</span>
+                  <span>Webpack</span>
                 </div>
               </div>
             </div>
@@ -698,45 +772,43 @@
         </div>
       </section>
 
-      <section id="kinh-nghiem">
+      <section id="experience" class="reveal">
         <div class="section-head">
           <h2>Kinh nghiệm làm việc</h2>
           <span>Experience</span>
         </div>
 
         <div class="grid">
-          <div class="card experience">
+          <div class="card experience-block">
             <div class="timeline">
               <div class="timeline-item">
-                <div class="timeline-top">
+                <div class="row-top">
                   <h3>Frontend Developer</h3>
-                  <div class="time">2022 - Hiện tại</div>
+                  <div class="time-tag">2022 - Hiện tại</div>
                 </div>
                 <p>
-                  Phát triển giao diện website cho các sản phẩm nội bộ và khách hàng, tối ưu hóa UI/UX và hiệu suất.
-                  Làm việc với React, Next.js, Tailwind và tích hợp API.
+                  Phát triển giao diện cho sản phẩm web và dashboard, tối ưu UX/UI, tích hợp API và cải thiện hiệu năng trải nghiệm.
+                  Làm việc chủ yếu với React, Next.js, Tailwind CSS và hệ sinh thái JavaScript hiện đại.
                 </p>
               </div>
 
               <div class="timeline-item">
-                <div class="timeline-top">
+                <div class="row-top">
                   <h3>UI Designer</h3>
-                  <div class="time">2020 - 2022</div>
+                  <div class="time-tag">2020 - 2022</div>
                 </div>
                 <p>
-                  Thiết kế landing page, dashboard và các giao diện thương mại điện tử. Tối ưu trải nghiệm người dùng
-                  dựa trên nghiên cứu hành vi và thiết kế hệ thống màu sắc, typography.
+                  Thiết kế landing page, dashboard và thương hiệu số cho khách hàng doanh nghiệp. Tạo design system, prototype, và tư vấn về trải nghiệm người dùng.
                 </p>
               </div>
 
               <div class="timeline-item">
-                <div class="timeline-top">
+                <div class="row-top">
                   <h3>Web Developer</h3>
-                  <div class="time">2018 - 2020</div>
+                  <div class="time-tag">2018 - 2020</div>
                 </div>
                 <p>
-                  Xây dựng các website thương mại, landing page và CMS phục vụ doanh nghiệp nhỏ và vừa. Tối ưu responsive,
-                  SEO và tốc độ tải trang.
+                  Xây dựng website thương mại, landing page và các portal nội bộ cho doanh nghiệp. Tối ưu responsive, tốc độ tải, và SEO.
                 </p>
               </div>
             </div>
@@ -744,36 +816,36 @@
         </div>
       </section>
 
-      <section id="du-an">
+      <section id="projects" class="reveal">
         <div class="section-head">
           <h2>Dự án tiêu biểu</h2>
           <span>Projects</span>
         </div>
 
         <div class="grid">
-          <div class="portfolio">
-            <div class="projects">
-              <article class="project">
-                <div class="project-cover"></div>
+          <div class="projects-block">
+            <div class="project-grid">
+              <article class="project-card">
+                <div class="project-visual"></div>
                 <div class="project-body">
                   <h3>E-Commerce Dashboard</h3>
-                  <p>Thiết kế dashboard quản lý bán hàng với biểu đồ, báo cáo, quản lý đơn hàng và KPI hiệu suất.</p>
+                  <p>Dashboard quản lý sản phẩm, đơn hàng, doanh thu và KPI bán hàng với giao diện hiện đại và dễ theo dõi.</p>
                 </div>
               </article>
 
-              <article class="project">
-                <div class="project-cover"></div>
+              <article class="project-card">
+                <div class="project-visual"></div>
                 <div class="project-body">
-                  <h3>Travel Booking UI</h3>
-                  <p>Giao diện đặt tour, tìm kiếm du lịch, thanh toán và quản lý lịch trình cho khách hàng.</p>
+                  <h3>Travel Booking App</h3>
+                  <p>Giao diện đặt tour, tìm kiếm và thanh toán cho nền tảng du lịch trực tuyến với trải nghiệm người dùng mượt mà.</p>
                 </div>
               </article>
 
-              <article class="project">
-                <div class="project-cover"></div>
+              <article class="project-card">
+                <div class="project-visual"></div>
                 <div class="project-body">
                   <h3>HR Management Portal</h3>
-                  <p>Portal nhân sự quản lý hồ sơ, chấm công, tuyển dụng và đánh giá hiệu suất nhân viên.</p>
+                  <p>Portal nhân sự tích hợp chấm công, quản lý hồ sơ, tuyển dụng và đánh giá hiệu suất nhân viên.</p>
                 </div>
               </article>
             </div>
@@ -783,7 +855,25 @@
     </main>
 
     <footer class="footer container">
-      © 2026 Nguyễn Văn A — Crafted with passion for clean and modern design.
+      © 2026 Nguyễn Văn A — Crafted with passion for modern digital experiences.
     </footer>
+
+    <script>
+      const revealItems = document.querySelectorAll('.reveal');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+    </script>
   </body>
 </html>
