@@ -3,52 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>kskyz | CV</title>
-    <meta
-      name="description"
-      content="CV chuyên nghiệp cho Frontend Developer / UI Designer / Developer"
-    />
+    <title>kskyz | Portfolio</title>
+    <meta name="description" content="Portfolio cá nhân của kskyz - Frontend Developer, UI/UX Designer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #0b1020;
-        --bg-alt: #111827;
-        --panel: rgba(17, 24, 39, 0.78);
-        --panel-strong: rgba(15, 23, 42, 0.96);
-        --card: rgba(15, 23, 42, 0.88);
-        --text: #e5eefb;
+        --bg: #0a0f1d;
+        --bg-2: #101827;
+        --panel: rgba(15, 23, 42, 0.8);
+        --panel-strong: rgba(16, 24, 39, 0.94);
+        --card: rgba(17, 24, 39, 0.88);
+        --text: #edf5ff;
         --muted: #9aa8bf;
-        --soft: #cbd5e1;
         --line: rgba(148, 163, 184, 0.18);
-        --primary: #8b5cf6;
-        --primary-2: #7c3aed;
+        --primary: #7c3aed;
+        --primary-2: #a78bfa;
         --secondary: #22d3ee;
         --accent: #f59e0b;
         --success: #34d399;
-        --shadow: 0 30px 70px rgba(15, 23, 42, 0.5);
+        --danger: #f87171;
+        --brand: #7c3aed;
+        --shadow: 0 30px 70px rgba(15, 23, 42, 0.45);
       }
 
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        min-height: 100vh;
         font-family: "Inter", sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(124, 58, 237, 0.22), transparent 28%),
-          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.12), transparent 26%),
-          linear-gradient(135deg, #07101f 0%, #0c1324 42%, #0d1729 100%);
+          radial-gradient(circle at top left, rgba(124, 58, 237, 0.24), transparent 25%),
+          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.12), transparent 30%),
+          linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
         color: var(--text);
         line-height: 1.7;
       }
@@ -58,35 +46,25 @@
         position: fixed;
         inset: 0;
         background-image:
-          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
-        background-size: 32px 32px;
-        mask-image: radial-gradient(circle at center, #000 50%, transparent 100%);
+          linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
         pointer-events: none;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
 
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      .container {
-        width: min(1160px, calc(100% - 32px));
-        margin: 0 auto;
-      }
+      .container { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
 
       .topbar {
         position: sticky;
         top: 0;
         z-index: 50;
-        border-bottom: 1px solid var(--line);
-        background: rgba(11, 16, 32, 0.55);
+        background: rgba(10, 15, 29, 0.62);
         backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--line);
       }
 
       .nav {
@@ -106,25 +84,23 @@
       }
 
       .brand-mark {
-        display: inline-grid;
-        place-items: center;
         width: 30px;
         height: 30px;
-        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        border-radius: 9px;
         background: linear-gradient(135deg, var(--secondary), var(--primary));
-        box-shadow: 0 12px 24px rgba(34, 211, 238, 0.35);
-        font-size: 0.8rem;
+        color: white;
+        box-shadow: 0 12px 30px rgba(34, 211, 238, 0.35);
       }
 
-      .brand span {
-        color: var(--secondary);
-      }
+      .brand span { color: var(--secondary); }
 
       .menu {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
-        gap: 22px;
+        gap: 24px;
+        flex-wrap: wrap;
       }
 
       .menu a {
@@ -133,19 +109,17 @@
         transition: color 0.2s ease;
       }
 
-      .menu a:hover {
-        color: var(--text);
-      }
+      .menu a:hover { color: var(--text); }
 
       .hero {
-        padding: 80px 0 40px;
+        padding: 90px 0 60px;
       }
 
-      .hero-grid {
+      .hero-wrap {
         display: grid;
-        grid-template-columns: 1.25fr 0.75fr;
-        gap: 36px;
+        grid-template-columns: 1.2fr 0.8fr;
         align-items: center;
+        gap: 40px;
       }
 
       .eyebrow {
@@ -153,11 +127,11 @@
         align-items: center;
         gap: 10px;
         padding: 8px 14px;
-        border: 1px solid rgba(124, 58, 237, 0.3);
         border-radius: 999px;
         background: rgba(124, 58, 237, 0.12);
-        color: #ddd6fe;
-        font-size: 0.75rem;
+        border: 1px solid rgba(124, 58, 237, 0.34);
+        color: #e9d5ff;
+        font-size: 0.72rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
@@ -172,8 +146,8 @@
       }
 
       h1 {
-        margin: 22px 0 18px;
-        font-size: clamp(2.7rem, 5vw, 5rem);
+        margin: 20px 0 18px;
+        font-size: clamp(2.8rem, 5vw, 5rem);
         line-height: 0.98;
         letter-spacing: -0.07em;
       }
@@ -186,10 +160,10 @@
       }
 
       .lead {
+        max-width: 640px;
         color: var(--muted);
         font-size: 1.08rem;
-        max-width: 620px;
-        margin: 0 0 26px;
+        margin: 0 0 28px;
       }
 
       .actions {
@@ -207,76 +181,72 @@
         padding: 0 22px;
         border-radius: 12px;
         font-weight: 700;
-        transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
-      .button:hover {
-        transform: translateY(-2px);
-      }
-
+      .button:hover { transform: translateY(-2px); }
       .button.primary {
         color: white;
         background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        box-shadow: 0 18px 34px rgba(124, 58, 237, 0.35);
+        box-shadow: 0 18px 35px rgba(124, 58, 237, 0.35);
       }
-
       .button.secondary {
         border: 1px solid var(--line);
         background: rgba(255, 255, 255, 0.02);
         color: var(--text);
       }
 
-      .mini-meta {
+      .meta {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         color: var(--muted);
-        font-size: 0.9rem;
+        font-size: 0.88rem;
       }
 
-      .mini-meta div {
+      .meta div {
         display: inline-flex;
         align-items: center;
         gap: 8px;
       }
 
-      .mini-meta div::before {
+      .meta div::before {
         content: "";
         width: 8px;
         height: 8px;
-        background: var(--success);
         border-radius: 50%;
+        background: var(--success);
         box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);
       }
 
-      .portrait-wrap {
+      .profile-card {
         position: relative;
         padding: 18px;
         border-radius: 28px;
-        background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(10, 16, 26, 0.82));
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(10, 16, 26, 0.86));
         border: 1px solid var(--line);
         box-shadow: var(--shadow);
       }
 
-      .portrait {
+      .avatar {
         position: relative;
         height: 420px;
-        border-radius: 24px;
+        border-radius: 22px;
         overflow: hidden;
         background:
-          linear-gradient(135deg, rgba(34, 211, 238, 0.18), rgba(124, 58, 237, 0.12)),
+          linear-gradient(135deg, rgba(34,211,238,0.20), rgba(124,58,237,0.15)),
           url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
       }
 
-      .portrait::before {
+      .avatar::before {
         content: "";
         position: absolute;
         inset: 14px;
         border: 1px solid rgba(255,255,255,0.14);
-        border-radius: 20px;
+        border-radius: 18px;
       }
 
-      .floating-badge {
+      .badge {
         position: absolute;
         left: 22px;
         right: 22px;
@@ -284,20 +254,20 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 10px;
+        gap: 20px;
         padding: 14px 16px;
         border-radius: 14px;
-        background: rgba(10, 16, 26, 0.76);
+        background: rgba(10, 16, 26, 0.72);
         border: 1px solid rgba(255,255,255,0.08);
         backdrop-filter: blur(10px);
       }
 
-      .floating-badge strong {
+      .badge strong {
         display: block;
         font-size: 1.02rem;
       }
 
-      .floating-badge span {
+      .badge span {
         display: block;
         color: var(--muted);
         font-size: 0.78rem;
@@ -318,19 +288,42 @@
         height: 8px;
         border-radius: 50%;
         background: var(--success);
-        box-shadow: 0 0 12px rgba(52,211,153,0.9);
+        box-shadow: 0 0 12px rgba(52, 211, 153, 0.9);
       }
 
-      section {
-        padding: 30px 0 12px;
+      .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
       }
+
+      .social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 42px;
+        min-height: 42px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.02);
+        color: var(--text);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .social:hover {
+        transform: translateY(-2px);
+        border-color: rgba(34,211,238,0.35);
+      }
+
+      section { padding: 26px 0 8px; }
 
       .section-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        margin-bottom: 20px;
+        margin-bottom: 22px;
       }
 
       .section-head h2 {
@@ -341,8 +334,8 @@
 
       .section-head span {
         color: var(--muted);
-        letter-spacing: 0.12em;
         font-size: 0.75rem;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
@@ -377,8 +370,8 @@
 
       .info-list {
         list-style: none;
-        padding: 0;
         margin: 0;
+        padding: 0;
         display: grid;
         gap: 14px;
       }
@@ -390,15 +383,18 @@
         gap: 14px;
         padding-bottom: 10px;
         border-bottom: 1px solid var(--line);
-        color: var(--muted);
       }
 
-      .info-list li strong {
+      .info-list li:last-child { border-bottom: none; }
+      .info-list span { color: var(--muted); }
+      .info-list strong {
         color: var(--text);
         font-weight: 600;
       }
 
-      .skills-block {
+      .skills-block,
+      .experience-block,
+      .projects-block {
         grid-column: span 12;
         padding: 22px;
       }
@@ -412,17 +408,17 @@
       .skill-card {
         padding: 18px;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
-        transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       }
 
       .skill-card:hover,
-      .project-card:hover,
-      .timeline-item:hover {
+      .timeline-item:hover,
+      .project-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(34, 211, 238, 0.3);
-        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+        border-color: rgba(34,211,238,0.38);
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.34);
       }
 
       .skill-card h3 {
@@ -442,14 +438,9 @@
         padding: 7px 10px;
         border-radius: 999px;
         background: rgba(124, 58, 237, 0.12);
-        border: 1px solid rgba(124, 58, 237, 0.18);
+        border: 1px solid rgba(124,58,237,0.18);
         color: #e9d5ff;
         font-size: 0.72rem;
-      }
-
-      .experience-block {
-        grid-column: span 12;
-        padding: 22px;
       }
 
       .timeline {
@@ -471,11 +462,11 @@
       .timeline-item {
         position: relative;
         margin-left: 46px;
-        padding: 18px 18px 16px;
+        padding: 18px;
         border-radius: 18px;
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
-        transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       }
 
       .timeline-item::before {
@@ -517,11 +508,6 @@
         line-height: 1.8;
       }
 
-      .projects-block {
-        grid-column: span 12;
-        padding: 22px;
-      }
-
       .project-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -533,33 +519,31 @@
         border-radius: 18px;
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
-        transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       }
 
       .project-visual {
+        position: relative;
         height: 190px;
         background-position: center;
         background-size: cover;
-        position: relative;
       }
 
       .project-visual::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, transparent, rgba(9, 13, 22, 0.6));
+        background: linear-gradient(180deg, transparent, rgba(9,13,22,0.6));
       }
 
       .project-card:nth-child(1) .project-visual {
-        background-image: linear-gradient(135deg, rgba(34, 211, 238, 0.26), rgba(124, 58, 237, 0.2)), url("https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80");
+        background-image: linear-gradient(135deg, rgba(34,211,238,0.26), rgba(124,58,237,0.2)), url("https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80");
       }
-
       .project-card:nth-child(2) .project-visual {
-        background-image: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(124, 58, 237, 0.2)), url("https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80");
+        background-image: linear-gradient(135deg, rgba(245,158,11,0.22), rgba(124,58,237,0.2)), url("https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80");
       }
-
       .project-card:nth-child(3) .project-visual {
-        background-image: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(34, 211, 238, 0.2)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
+        background-image: linear-gradient(135deg, rgba(52,211,153,0.22), rgba(34,211,238,0.2)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
       }
 
       .project-body {
@@ -577,15 +561,22 @@
         line-height: 1.8;
       }
 
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 20px;
+      }
+
       .footer {
-        padding: 36px 0 60px;
+        padding: 40px 0 60px;
         text-align: center;
         color: var(--muted);
       }
 
       .reveal {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(22px);
         transition: opacity 0.6s ease, transform 0.6s ease;
       }
 
@@ -595,45 +586,17 @@
       }
 
       @media (max-width: 960px) {
-        .hero-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .about-block,
-        .contact-card,
-        .skills-block,
-        .experience-block,
-        .projects-block {
-          grid-column: span 12;
-        }
-
-        .skill-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .project-grid {
-          grid-template-columns: 1fr 1fr;
-        }
+        .hero-wrap { grid-template-columns: 1fr; }
+        .about-block, .contact-card, .skills-block, .experience-block, .projects-block { grid-column: span 12; }
+        .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       }
 
       @media (max-width: 620px) {
-        .menu {
-          display: none;
-        }
-
-        .hero {
-          padding-top: 60px;
-        }
-
-        .skill-grid,
-        .project-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .row-top {
-          flex-direction: column;
-          align-items: flex-start;
-        }
+        .menu { display: none; }
+        .hero { padding-top: 60px; }
+        .skill-grid, .project-grid { grid-template-columns: 1fr; }
+        .row-top { flex-direction: column; align-items: flex-start; }
       }
     </style>
   </head>
@@ -645,48 +608,53 @@
           <span>kskyz</span>
         </div>
         <nav class="menu" aria-label="Main navigation">
-          <a href="#about">Giới thiệu</a>
-          <a href="#skills">Kỹ năng</a>
-          <a href="#experience">Kinh nghiệm</a>
-          <a href="#projects">Dự án</a>
-          <a href="#contact">Liên hệ</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
       <section class="hero reveal">
-        <div class="hero-grid">
+        <div class="hero-wrap">
           <div>
             <div class="eyebrow">Frontend Developer</div>
             <h1>
-              Thiết kế <span class="gradient-text">trải nghiệm</span><br />
-              sáng tạo & hiệu quả
+              I craft <span class="gradient-text">clean digital</span><br />
+              experiences that scale.
             </h1>
             <p class="lead">
-              Tôi là <strong>kskyz</strong>, Frontend Developer và UI Designer với 3+ năm kinh nghiệm xây dựng sản phẩm web hiện đại,
-              tối ưu trải nghiệm người dùng, giao diện đẹp, hiệu năng cao và dễ mở rộng.
+              I’m <strong>kskyz</strong>, a Frontend Developer and product-minded designer focused on building elegant, high-performing interfaces that balance aesthetics, usability, and business impact.
             </p>
 
             <div class="actions">
-              <a href="#projects" class="button primary">Xem dự án</a>
-              <a href="#contact" class="button secondary">Liên hệ</a>
+              <a href="#projects" class="button primary">View Projects</a>
+              <a href="#contact" class="button secondary">Contact Me</a>
             </div>
 
-            <div class="mini-meta">
-              <div>Hiện đang làm việc tại FPT Software</div>
+            <div class="meta">
               <div>Available for freelance</div>
+              <div>Based in Hanoi, Vietnam</div>
+            </div>
+
+            <div class="socials" aria-label="Social links">
+              <a class="social" href="https://github.com/kskyz" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+              <a class="social" href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">IN</a>
+              <a class="social" href="https://portfolio.example.com" target="_blank" rel="noreferrer" aria-label="Portfolio">PT</a>
             </div>
           </div>
 
-          <div class="portrait-wrap">
-            <div class="portrait" aria-label="Profile image">
-              <div class="floating-badge">
+          <div class="profile-card">
+            <div class="avatar" aria-label="Profile avatar">
+              <div class="badge">
                 <div>
                   <strong>kskyz</strong>
-                  <span>Product Designer / Developer</span>
+                  <span>UI/UX • Frontend</span>
                 </div>
-                <div class="status-dot">Available</div>
+                <div class="status-dot">Open to work</div>
               </div>
             </div>
           </div>
@@ -695,16 +663,16 @@
 
       <section id="about" class="reveal">
         <div class="section-head">
-          <h2>Giới thiệu</h2>
+          <h2>About Me</h2>
           <span>Profile</span>
         </div>
 
         <div class="grid">
           <div class="card about-block">
             <p>
-              Tôi tập trung vào việc xây dựng giao diện người dùng hiện đại, tối ưu trải nghiệm và dễ tiếp cận trên mọi thiết bị.
-              Với phương châm “thiết kế không chỉ đẹp mà còn hiệu quả”, tôi kết hợp giữa yếu tố thẩm mỹ, logic UX, và kỹ thuật front-end để tạo ra sản phẩm đáng tin cậy và dễ mở rộng.
-              Tôi có kinh nghiệm làm việc với React, Next.js, Tailwind, HTML/CSS/JS, và quy trình thiết kế từ ideation đến prototype, implementation và testing.
+              I design and build interfaces that are intuitive, visually polished, and easy to scale. My work sits at the intersection of product thinking and frontend engineering — turning business goals into user-friendly experiences with a strong focus on clarity, performance, and storytelling.
+              <br /><br />
+              From ideation and wireframing to implementation and iteration, I enjoy collaborating closely with teams to ship experiences that feel premium and work reliably across devices.
             </p>
           </div>
 
@@ -712,8 +680,8 @@
             <ul class="info-list">
               <li><span>Email</span><strong>kskyz@email.com</strong></li>
               <li><span>GitHub</span><strong>github.com/kskyz</strong></li>
-              <li><span>Location</span><strong>Hà Nội, Việt Nam</strong></li>
-              <li><span>Website</span><strong>portfolio.example.com</strong></li>
+              <li><span>LinkedIn</span><strong>linkedin.com/in/kskyz</strong></li>
+              <li><span>Portfolio</span><strong>portfolio.example.com</strong></li>
             </ul>
           </div>
         </div>
@@ -721,8 +689,8 @@
 
       <section id="skills" class="reveal">
         <div class="section-head">
-          <h2>Kỹ năng</h2>
-          <span>Skills</span>
+          <h2>Skills</h2>
+          <span>Capabilities</span>
         </div>
 
         <div class="grid">
@@ -739,17 +707,17 @@
               </div>
 
               <div class="skill-card">
-                <h3>UI/UX</h3>
+                <h3>UI / UX</h3>
                 <div class="tags">
                   <span>Figma</span>
-                  <span>Wireframe</span>
-                  <span>Prototype</span>
-                  <span>Design System</span>
+                  <span>Prototyping</span>
+                  <span>Wireframes</span>
+                  <span>Design Systems</span>
                 </div>
               </div>
 
               <div class="skill-card">
-                <h3>Framework</h3>
+                <h3>Frameworks</h3>
                 <div class="tags">
                   <span>Next.js</span>
                   <span>Tailwind</span>
@@ -764,7 +732,7 @@
                   <span>Git</span>
                   <span>GitHub</span>
                   <span>Jira</span>
-                  <span>Webpack</span>
+                  <span>Figma</span>
                 </div>
               </div>
             </div>
@@ -774,8 +742,8 @@
 
       <section id="experience" class="reveal">
         <div class="section-head">
-          <h2>Kinh nghiệm làm việc</h2>
-          <span>Experience</span>
+          <h2>Experience</h2>
+          <span>Timeline</span>
         </div>
 
         <div class="grid">
@@ -784,21 +752,20 @@
               <div class="timeline-item">
                 <div class="row-top">
                   <h3>Frontend Developer</h3>
-                  <div class="time-tag">2022 - Hiện tại</div>
+                  <div class="time-tag">2022 - Present</div>
                 </div>
                 <p>
-                  Phát triển giao diện cho sản phẩm web và dashboard, tối ưu UX/UI, tích hợp API và cải thiện hiệu năng trải nghiệm.
-                  Làm việc chủ yếu với React, Next.js, Tailwind CSS và hệ sinh thái JavaScript hiện đại.
+                  Built responsive, production-ready interfaces for web apps and SaaS products. Worked closely with design and backend teams to ship scalable UI with strong performance and maintainability.
                 </p>
               </div>
 
               <div class="timeline-item">
                 <div class="row-top">
-                  <h3>UI Designer</h3>
+                  <h3>UI / UX Designer</h3>
                   <div class="time-tag">2020 - 2022</div>
                 </div>
                 <p>
-                  Thiết kế landing page, dashboard và thương hiệu số cho khách hàng doanh nghiệp. Tạo design system, prototype, và tư vấn về trải nghiệm người dùng.
+                  Designed modern landing pages, dashboards, and product flows with a focus on usability, accessibility, and brand consistency. Turned product requirements into clear interfaces and prototypes.
                 </p>
               </div>
 
@@ -808,7 +775,7 @@
                   <div class="time-tag">2018 - 2020</div>
                 </div>
                 <p>
-                  Xây dựng website thương mại, landing page và các portal nội bộ cho doanh nghiệp. Tối ưu responsive, tốc độ tải, và SEO.
+                  Developed business websites and marketing pages with a strong emphasis on responsiveness, performance, and conversion-focused design.
                 </p>
               </div>
             </div>
@@ -818,26 +785,26 @@
 
       <section id="projects" class="reveal">
         <div class="section-head">
-          <h2>Dự án tiêu biểu</h2>
-          <span>Projects</span>
+          <h2>Featured Projects</h2>
+          <span>Work</span>
         </div>
 
         <div class="grid">
-          <div class="projects-block">
+          <div class="card projects-block">
             <div class="project-grid">
               <article class="project-card">
                 <div class="project-visual"></div>
                 <div class="project-body">
                   <h3>E-Commerce Dashboard</h3>
-                  <p>Dashboard quản lý sản phẩm, đơn hàng, doanh thu và KPI bán hàng với giao diện hiện đại và dễ theo dõi.</p>
+                  <p>Built a full-feature dashboard for sales tracking, inventory management, and reporting analytics with a focus on clarity and decision-making.</p>
                 </div>
               </article>
 
               <article class="project-card">
                 <div class="project-visual"></div>
                 <div class="project-body">
-                  <h3>Travel Booking App</h3>
-                  <p>Giao diện đặt tour, tìm kiếm và thanh toán cho nền tảng du lịch trực tuyến với trải nghiệm người dùng mượt mà.</p>
+                  <h3>Travel Booking Platform</h3>
+                  <p>Designed and implemented a responsive booking experience with search, filters, package cards, and streamlined checkout flows.</p>
                 </div>
               </article>
 
@@ -845,33 +812,37 @@
                 <div class="project-visual"></div>
                 <div class="project-body">
                   <h3>HR Management Portal</h3>
-                  <p>Portal nhân sự tích hợp chấm công, quản lý hồ sơ, tuyển dụng và đánh giá hiệu suất nhân viên.</p>
+                  <p>Created a portal for attendance tracking, employee management, onboarding, and performance monitoring with modern dashboards.</p>
                 </div>
               </article>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="reveal">
+        <div class="cta-row">
+          <a href="https://github.com/kskyz" class="button primary" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://linkedin.com" class="button secondary" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://portfolio.example.com" class="button secondary" target="_blank" rel="noreferrer">Portfolio</a>
+        </div>
+      </section>
     </main>
 
     <footer class="footer container">
-      © 2026 kskyz — Crafted with passion for modern digital experiences.
+      © 2026 kskyz · Crafted with care for modern digital experiences.
     </footer>
 
     <script>
       const revealItems = document.querySelectorAll('.reveal');
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
 
       revealItems.forEach((item) => observer.observe(item));
     </script>
