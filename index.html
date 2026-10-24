@@ -3,28 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>kskyz | Portfolio</title>
-    <meta name="description" content="Portfolio cá nhân của kskyz - Frontend Developer, UI/UX Designer" />
+    <title>kskyz | Apple-style Portfolio</title>
+    <meta name="description" content="Portfolio cá nhân kiểu Apple / minimal premium của kskyz" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #0a0f1d;
-        --bg-2: #101827;
-        --panel: rgba(15, 23, 42, 0.8);
-        --panel-strong: rgba(16, 24, 39, 0.94);
-        --card: rgba(17, 24, 39, 0.88);
-        --text: #edf5ff;
-        --muted: #9aa8bf;
-        --line: rgba(148, 163, 184, 0.18);
+        --bg: #0a0d12;
+        --bg-soft: #111827;
+        --panel: rgba(17, 24, 39, 0.72);
+        --panel-strong: rgba(15, 23, 42, 0.94);
+        --card: rgba(17, 24, 39, 0.8);
+        --card-elevated: rgba(26, 31, 42, 0.78);
+        --text: #f5f7fb;
+        --muted: #a7b5c9;
+        --line: rgba(148, 163, 184, 0.16);
         --primary: #7c3aed;
-        --primary-2: #a78bfa;
+        --primary-strong: #8b5cf6;
         --secondary: #22d3ee;
+        --tertiary: #a78bfa;
         --accent: #f59e0b;
         --success: #34d399;
         --danger: #f87171;
-        --brand: #7c3aed;
         --shadow: 0 30px 70px rgba(15, 23, 42, 0.45);
       }
 
@@ -32,11 +33,12 @@
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
+        min-height: 100vh;
         font-family: "Inter", sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(124, 58, 237, 0.24), transparent 25%),
-          radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.12), transparent 30%),
-          linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+          radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.2), transparent 22%),
+          radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.1), transparent 18%),
+          linear-gradient(135deg, #060a11 0%, #0a0f1a 38%, #0f172a 100%);
         color: var(--text);
         line-height: 1.7;
       }
@@ -46,25 +48,25 @@
         position: fixed;
         inset: 0;
         background-image:
-          linear-gradient(rgba(148, 163, 184, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+          linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
         background-size: 28px 28px;
-        mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
+        mask-image: radial-gradient(circle at center, black 52%, transparent 100%);
         pointer-events: none;
       }
 
-      a { color: inherit; text-decoration: none; }
       img { max-width: 100%; display: block; }
+      a { color: inherit; text-decoration: none; }
 
-      .container { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+      .container { width: min(1180px, calc(100% - 30px)); margin: 0 auto; }
 
       .topbar {
         position: sticky;
         top: 0;
-        z-index: 50;
-        background: rgba(10, 15, 29, 0.62);
-        backdrop-filter: blur(18px);
+        z-index: 60;
+        background: rgba(10, 13, 18, 0.62);
         border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(16px);
       }
 
       .nav {
@@ -88,19 +90,19 @@
         height: 30px;
         display: grid;
         place-items: center;
-        border-radius: 9px;
+        border-radius: 10px;
         background: linear-gradient(135deg, var(--secondary), var(--primary));
-        color: white;
-        box-shadow: 0 12px 30px rgba(34, 211, 238, 0.35);
+        box-shadow: 0 12px 24px rgba(34, 211, 238, 0.35);
+        font-size: 0.78rem;
       }
 
       .brand span { color: var(--secondary); }
 
       .menu {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 24px;
-        flex-wrap: wrap;
       }
 
       .menu a {
@@ -112,14 +114,46 @@
       .menu a:hover { color: var(--text); }
 
       .hero {
-        padding: 90px 0 60px;
+        padding: 96px 0 56px;
       }
 
-      .hero-wrap {
+      .hero-shell {
+        position: relative;
+        padding: 24px 0 8px;
+      }
+
+      .orb {
+        position: absolute;
+        filter: blur(10px);
+        opacity: 0.7;
+        pointer-events: none;
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.2s ease-out;
+      }
+
+      .orb.one {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        left: 10%;
+        top: 8%;
+        background: radial-gradient(circle, rgba(124, 58, 237, 0.54), rgba(124, 58, 237, 0.02) 60%, transparent 70%);
+      }
+
+      .orb.two {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        right: 10%;
+        bottom: 4%;
+        background: radial-gradient(circle, rgba(34, 211, 238, 0.46), rgba(34, 211, 238, 0.02) 60%, transparent 70%);
+      }
+
+      .hero-grid {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns: 1.15fr 0.85fr;
         align-items: center;
-        gap: 40px;
+        gap: 32px;
       }
 
       .eyebrow {
@@ -129,7 +163,7 @@
         padding: 8px 14px;
         border-radius: 999px;
         background: rgba(124, 58, 237, 0.12);
-        border: 1px solid rgba(124, 58, 237, 0.34);
+        border: 1px solid rgba(124, 58, 237, 0.3);
         color: #e9d5ff;
         font-size: 0.72rem;
         letter-spacing: 0.12em;
@@ -142,25 +176,25 @@
         height: 8px;
         border-radius: 50%;
         background: var(--secondary);
-        box-shadow: 0 0 14px rgba(34, 211, 238, 0.9);
+        box-shadow: 0 0 12px rgba(34, 211, 238, 0.9);
       }
 
       h1 {
-        margin: 20px 0 18px;
-        font-size: clamp(2.8rem, 5vw, 5rem);
-        line-height: 0.98;
-        letter-spacing: -0.07em;
+        font-size: clamp(3rem, 6vw, 5.8rem);
+        line-height: 0.96;
+        letter-spacing: -0.08em;
+        margin: 22px 0 18px;
       }
 
       .gradient-text {
-        background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 45%, #f472b6 100%);
+        background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 46%, #f472b6 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
 
-      .lead {
-        max-width: 640px;
+      .intro {
+        max-width: 650px;
         color: var(--muted);
         font-size: 1.08rem;
         margin: 0 0 28px;
@@ -170,7 +204,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
-        margin-bottom: 26px;
+        margin-bottom: 24px;
       }
 
       .button {
@@ -181,22 +215,22 @@
         padding: 0 22px;
         border-radius: 12px;
         font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       }
 
       .button:hover { transform: translateY(-2px); }
       .button.primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
         color: white;
-        background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        box-shadow: 0 18px 35px rgba(124, 58, 237, 0.35);
+        box-shadow: 0 18px 34px rgba(124, 58, 237, 0.35);
       }
       .button.secondary {
         border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255,255,255,0.02);
         color: var(--text);
       }
 
-      .meta {
+      .status-row {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
@@ -204,13 +238,13 @@
         font-size: 0.88rem;
       }
 
-      .meta div {
+      .status-row div {
         display: inline-flex;
         align-items: center;
         gap: 8px;
       }
 
-      .meta div::before {
+      .status-row div::before {
         content: "";
         width: 8px;
         height: 8px;
@@ -221,20 +255,22 @@
 
       .profile-card {
         position: relative;
+        width: min(100%, 420px);
+        margin-left: auto;
         padding: 18px;
-        border-radius: 28px;
-        background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(10, 16, 26, 0.86));
+        border-radius: 30px;
+        background: linear-gradient(180deg, rgba(17,24,39,0.84), rgba(10,16,26,0.9));
         border: 1px solid var(--line);
         box-shadow: var(--shadow);
       }
 
       .avatar {
         position: relative;
-        height: 420px;
+        min-height: 420px;
         border-radius: 22px;
         overflow: hidden;
         background:
-          linear-gradient(135deg, rgba(34,211,238,0.20), rgba(124,58,237,0.15)),
+          linear-gradient(135deg, rgba(34, 211, 238, 0.22), rgba(124, 58, 237, 0.16)),
           url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80") center/cover no-repeat;
       }
 
@@ -242,7 +278,7 @@
         content: "";
         position: absolute;
         inset: 14px;
-        border: 1px solid rgba(255,255,255,0.14);
+        border: 1px solid rgba(255,255,255,0.16);
         border-radius: 18px;
       }
 
@@ -254,12 +290,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 14px;
         padding: 14px 16px;
         border-radius: 14px;
-        background: rgba(10, 16, 26, 0.72);
-        border: 1px solid rgba(255,255,255,0.08);
-        backdrop-filter: blur(10px);
+        background: rgba(10, 16, 26, 0.75);
+        border: 1px solid rgba(255,255,255,0.07);
+        backdrop-filter: blur(9px);
       }
 
       .badge strong {
@@ -270,13 +306,10 @@
       .badge span {
         display: block;
         color: var(--muted);
-        font-size: 0.78rem;
+        font-size: 0.77rem;
       }
 
       .status-dot {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
         color: var(--success);
         font-size: 0.8rem;
         font-weight: 600;
@@ -284,9 +317,11 @@
 
       .status-dot::before {
         content: "";
+        display: inline-block;
         width: 8px;
         height: 8px;
         border-radius: 50%;
+        margin-right: 8px;
         background: var(--success);
         box-shadow: 0 0 12px rgba(52, 211, 153, 0.9);
       }
@@ -295,48 +330,49 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 18px;
+        margin-top: 16px;
       }
 
       .social {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 42px;
-        min-height: 42px;
+        width: 42px;
+        height: 42px;
         border-radius: 12px;
-        border: 1px solid var(--line);
         background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
         color: var(--text);
-        transition: transform 0.2s ease, border-color 0.2s ease;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       }
 
       .social:hover {
         transform: translateY(-2px);
         border-color: rgba(34,211,238,0.35);
+        box-shadow: 0 12px 24px rgba(34,211,238,0.15);
       }
 
-      section { padding: 26px 0 8px; }
+      section { padding: 30px 0 12px; }
 
       .section-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        margin-bottom: 22px;
+        margin-bottom: 20px;
       }
 
       .section-head h2 {
         margin: 0;
-        font-size: clamp(1.5rem, 2vw, 2.2rem);
-        letter-spacing: -0.04em;
+        font-size: clamp(1.6rem, 2vw, 2.3rem);
+        letter-spacing: -0.05em;
       }
 
       .section-head span {
         color: var(--muted);
-        font-size: 0.75rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
+        font-size: 0.75rem;
       }
 
       .grid {
@@ -348,8 +384,8 @@
       .card {
         background: var(--card);
         border: 1px solid var(--line);
-        border-radius: 20px;
-        box-shadow: 0 18px 38px rgba(2, 6, 23, 0.24);
+        border-radius: 22px;
+        box-shadow: 0 18px 38px rgba(2, 6, 23, 0.22);
       }
 
       .about-block {
@@ -417,8 +453,8 @@
       .timeline-item:hover,
       .project-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(34,211,238,0.38);
-        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.34);
+        border-color: rgba(34,211,238,0.36);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.28);
       }
 
       .skill-card h3 {
@@ -437,8 +473,8 @@
         align-items: center;
         padding: 7px 10px;
         border-radius: 999px;
-        background: rgba(124, 58, 237, 0.12);
-        border: 1px solid rgba(124,58,237,0.18);
+        background: rgba(124,58,237,0.12);
+        border: 1px solid rgba(124,58,237,0.2);
         color: #e9d5ff;
         font-size: 0.72rem;
       }
@@ -462,7 +498,7 @@
       .timeline-item {
         position: relative;
         margin-left: 46px;
-        padding: 18px;
+        padding: 18px 18px 16px;
         border-radius: 18px;
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
@@ -490,11 +526,7 @@
         margin-bottom: 8px;
       }
 
-      .row-top h3 {
-        margin: 0;
-        font-size: 1.08rem;
-      }
-
+      .row-top h3 { margin: 0; font-size: 1.08rem; }
       .time-tag {
         color: var(--muted);
         font-size: 0.76rem;
@@ -525,36 +557,32 @@
       .project-visual {
         position: relative;
         height: 190px;
-        background-position: center;
         background-size: cover;
+        background-position: center;
       }
 
       .project-visual::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, transparent, rgba(9,13,22,0.6));
+        background: linear-gradient(180deg, transparent, rgba(9,13,22,0.62));
       }
 
       .project-card:nth-child(1) .project-visual {
-        background-image: linear-gradient(135deg, rgba(34,211,238,0.26), rgba(124,58,237,0.2)), url("https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80");
+        background-image: linear-gradient(135deg, rgba(34,211,238,0.3), rgba(124,58,237,0.2)), url("https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80");
       }
       .project-card:nth-child(2) .project-visual {
-        background-image: linear-gradient(135deg, rgba(245,158,11,0.22), rgba(124,58,237,0.2)), url("https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80");
+        background-image: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(124,58,237,0.22)), url("https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80");
       }
       .project-card:nth-child(3) .project-visual {
-        background-image: linear-gradient(135deg, rgba(52,211,153,0.22), rgba(34,211,238,0.2)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
+        background-image: linear-gradient(135deg, rgba(52,211,153,0.2), rgba(34,211,238,0.2)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80");
       }
 
       .project-body {
         padding: 18px;
       }
 
-      .project-body h3 {
-        margin: 0 0 8px;
-        font-size: 1.08rem;
-      }
-
+      .project-body h3 { margin: 0 0 8px; font-size: 1.08rem; }
       .project-body p {
         margin: 0;
         color: var(--muted);
@@ -565,19 +593,19 @@
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
-        margin-top: 20px;
+        margin-top: 18px;
       }
 
       .footer {
-        padding: 40px 0 60px;
-        text-align: center;
+        padding: 30px 0 60px;
         color: var(--muted);
+        text-align: center;
       }
 
       .reveal {
         opacity: 0;
         transform: translateY(22px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        transition: opacity 0.7s ease, transform 0.7s ease;
       }
 
       .reveal.visible {
@@ -586,7 +614,8 @@
       }
 
       @media (max-width: 960px) {
-        .hero-wrap { grid-template-columns: 1fr; }
+        .hero-grid { grid-template-columns: 1fr; }
+        .profile-card { margin: 0 auto; }
         .about-block, .contact-card, .skills-block, .experience-block, .projects-block { grid-column: span 12; }
         .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -594,7 +623,7 @@
 
       @media (max-width: 620px) {
         .menu { display: none; }
-        .hero { padding-top: 60px; }
+        .hero { padding-top: 72px; }
         .skill-grid, .project-grid { grid-template-columns: 1fr; }
         .row-top { flex-direction: column; align-items: flex-start; }
       }
@@ -619,42 +648,46 @@
 
     <main class="container">
       <section class="hero reveal">
-        <div class="hero-wrap">
-          <div>
-            <div class="eyebrow">Frontend Developer</div>
-            <h1>
-              I craft <span class="gradient-text">clean digital</span><br />
-              experiences that scale.
-            </h1>
-            <p class="lead">
-              I’m <strong>kskyz</strong>, a Frontend Developer and product-minded designer focused on building elegant, high-performing interfaces that balance aesthetics, usability, and business impact.
-            </p>
+        <div class="hero-shell">
+          <div class="orb one"></div>
+          <div class="orb two"></div>
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">Frontend Developer</div>
+              <h1>
+                I build <span class="gradient-text">premium</span><br />
+                digital experiences.
+              </h1>
+              <p class="intro">
+                I’m <strong>kskyz</strong>, a product-minded developer and designer focused on building elegant interfaces with high performance, thoughtful UX, and a strong visual identity.
+              </p>
 
-            <div class="actions">
-              <a href="#projects" class="button primary">View Projects</a>
-              <a href="#contact" class="button secondary">Contact Me</a>
+              <div class="actions">
+                <a href="#projects" class="button primary">View Projects</a>
+                <a href="#contact" class="button secondary">Contact Me</a>
+              </div>
+
+              <div class="status-row">
+                <div>Available for freelance</div>
+                <div>Based in Hanoi, Vietnam</div>
+              </div>
+
+              <div class="socials" aria-label="Social links">
+                <a class="social" href="https://github.com/kskyz" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+                <a class="social" href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">IN</a>
+                <a class="social" href="https://portfolio.example.com" target="_blank" rel="noreferrer" aria-label="Portfolio">PT</a>
+              </div>
             </div>
 
-            <div class="meta">
-              <div>Available for freelance</div>
-              <div>Based in Hanoi, Vietnam</div>
-            </div>
-
-            <div class="socials" aria-label="Social links">
-              <a class="social" href="https://github.com/kskyz" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
-              <a class="social" href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">IN</a>
-              <a class="social" href="https://portfolio.example.com" target="_blank" rel="noreferrer" aria-label="Portfolio">PT</a>
-            </div>
-          </div>
-
-          <div class="profile-card">
-            <div class="avatar" aria-label="Profile avatar">
-              <div class="badge">
-                <div>
-                  <strong>kskyz</strong>
-                  <span>UI/UX • Frontend</span>
+            <div class="profile-card">
+              <div class="avatar" aria-label="Profile image">
+                <div class="badge">
+                  <div>
+                    <strong>kskyz</strong>
+                    <span>UI/UX • Frontend</span>
+                  </div>
+                  <div class="status-dot">Open to work</div>
                 </div>
-                <div class="status-dot">Open to work</div>
               </div>
             </div>
           </div>
@@ -670,9 +703,9 @@
         <div class="grid">
           <div class="card about-block">
             <p>
-              I design and build interfaces that are intuitive, visually polished, and easy to scale. My work sits at the intersection of product thinking and frontend engineering — turning business goals into user-friendly experiences with a strong focus on clarity, performance, and storytelling.
+              I create intuitive digital experiences that merge clean design with precise engineering. My work lives at the intersection of UX thinking and frontend execution — balancing aesthetics, accessibility, product goals, and real-world usability.
               <br /><br />
-              From ideation and wireframing to implementation and iteration, I enjoy collaborating closely with teams to ship experiences that feel premium and work reliably across devices.
+              I enjoy designing and building polished interfaces that feel calm, premium, and effortless to use, while staying efficient, scalable, and easy to maintain in real product environments.
             </p>
           </div>
 
@@ -710,9 +743,9 @@
                 <h3>UI / UX</h3>
                 <div class="tags">
                   <span>Figma</span>
-                  <span>Prototyping</span>
-                  <span>Wireframes</span>
-                  <span>Design Systems</span>
+                  <span>UX Flow</span>
+                  <span>Prototype</span>
+                  <span>Systems</span>
                 </div>
               </div>
 
@@ -742,8 +775,8 @@
 
       <section id="experience" class="reveal">
         <div class="section-head">
-          <h2>Experience</h2>
-          <span>Timeline</span>
+          <h2>Kinh nghiệm</h2>
+          <span>Experience</span>
         </div>
 
         <div class="grid">
@@ -755,7 +788,7 @@
                   <div class="time-tag">2022 - Present</div>
                 </div>
                 <p>
-                  Built responsive, production-ready interfaces for web apps and SaaS products. Worked closely with design and backend teams to ship scalable UI with strong performance and maintainability.
+                  Deliver polished interfaces for SaaS products and internal platforms, with emphasis on product UX, responsive design, performance, and maintainability across multiple flows.
                 </p>
               </div>
 
@@ -765,7 +798,7 @@
                   <div class="time-tag">2020 - 2022</div>
                 </div>
                 <p>
-                  Designed modern landing pages, dashboards, and product flows with a focus on usability, accessibility, and brand consistency. Turned product requirements into clear interfaces and prototypes.
+                  Designed landing pages, dashboards, and customer-facing products with a focus on consistency, accessibility, conversion, and a premium visual language.
                 </p>
               </div>
 
@@ -775,7 +808,7 @@
                   <div class="time-tag">2018 - 2020</div>
                 </div>
                 <p>
-                  Developed business websites and marketing pages with a strong emphasis on responsiveness, performance, and conversion-focused design.
+                  Built business websites, marketing pages, and portal experiences optimized for responsiveness, performance, and straightforward user journeys.
                 </p>
               </div>
             </div>
@@ -796,7 +829,7 @@
                 <div class="project-visual"></div>
                 <div class="project-body">
                   <h3>E-Commerce Dashboard</h3>
-                  <p>Built a full-feature dashboard for sales tracking, inventory management, and reporting analytics with a focus on clarity and decision-making.</p>
+                  <p>Built a modern analytics dashboard for sales, inventory, and performance tracking, optimized for clarity and daily decision-making.</p>
                 </div>
               </article>
 
@@ -804,7 +837,7 @@
                 <div class="project-visual"></div>
                 <div class="project-body">
                   <h3>Travel Booking Platform</h3>
-                  <p>Designed and implemented a responsive booking experience with search, filters, package cards, and streamlined checkout flows.</p>
+                  <p>Designed and implemented a responsive booking experience with search, package cards, filters, and a streamlined checkout flow.</p>
                 </div>
               </article>
 
@@ -812,7 +845,7 @@
                 <div class="project-visual"></div>
                 <div class="project-body">
                   <h3>HR Management Portal</h3>
-                  <p>Created a portal for attendance tracking, employee management, onboarding, and performance monitoring with modern dashboards.</p>
+                  <p>Created a clean portal for employee management, onboarding, payroll views, and attendance workflows with strong usability.</p>
                 </div>
               </article>
             </div>
@@ -830,7 +863,7 @@
     </main>
 
     <footer class="footer container">
-      © 2026 kskyz · Crafted with care for modern digital experiences.
+      © 2026 kskyz · Crafted with a minimal premium aesthetic.
     </footer>
 
     <script>
@@ -845,6 +878,15 @@
       }, { threshold: 0.12 });
 
       revealItems.forEach((item) => observer.observe(item));
+
+      const orbs = document.querySelectorAll('.orb');
+      document.addEventListener('pointermove', (event) => {
+        const x = (event.clientX / window.innerWidth - 0.5) * 2;
+        const y = (event.clientY / window.innerHeight - 0.5) * 2;
+
+        orbs[0].style.transform = `translate(${x * 25}px, ${y * 25}px)`;
+        orbs[1].style.transform = `translate(${x * -20}px, ${y * -22}px)`;
+      });
     </script>
   </body>
 </html>
